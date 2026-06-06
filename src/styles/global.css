@@ -403,8 +403,7 @@ h1 span {
     max-width: 92vw;
     padding: 24px 22px 26px;
     border-radius: 28px;
-    background: rgba(251, 248, 244, 0.78);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(45deg,rgba(251, 248, 244, 1) 33%, rgba(251, 248, 244, .1) 100%);
   }
 
   .lead {
