@@ -1,43 +1,111 @@
-# Astro Starter Kit: Minimal
+# Olga Astro
 
-```sh
-npm create astro@latest -- --template minimal
+## Запуск
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Картинки
 
-## 🚀 Project Structure
+Положить финальные изображения в `public/images/`:
 
-Inside of your Astro project, you'll see the following folders and files:
+- hero.webp
+- who-am-i.webp
+- where-to-go.webp
+- relationships.webp
+- future.webp
+- emotions.webp
+- health.webp
+- education.webp
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Видео позже
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Положить короткие loop-файлы в `public/video/`:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- hero.webm
+- who-am-i.webm
+- where-to-go.webm
+- relationships.webm
+- future.webm
+- emotions.webm
+- health.webm
+- education.webm
 
-Any static assets, like images, can be placed in the `public/` directory.
+Если видео нет, браузер покажет poster-картинку.
 
-## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+## Рукописный шрифт
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+В CSS уже заложен `font-family: "Betmo Cyr"` для красных рукописных акцентов.
 
-## 👀 Want to learn more?
+Я не вкладываю файл шрифта в архив. Если есть лицензия:
+1. создать папку `public/fonts/`
+2. положить туда `BetmoCyr.woff2`
+3. раскомментировать блок `@font-face` в `src/styles/global.css`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Без файла будет fallback на системный рукописный шрифт.
+
+
+## v13: изображения уже добавлены
+
+В `public/images/` уже лежат подготовленные `.webp`:
+
+- hero.webp
+- who-am-i.webp
+- where-to-go.webp
+- relationships.webp
+- future.webp
+- emotions.webp
+- health.webp
+- education.webp
+
+Это первые рабочие кропы без впеченного текста. Текст теперь живой в Astro.
+
+
+## v14 Typography
+
+Типографика обновлена:
+
+- Title: Cormorant Regular, 56px
+- Script: Betmo Regular Cyr, 90px
+- Subtitles / thesis: Montserrat Light, 18px
+- CTA: Montserrat Medium, 14px, capitalize
+
+Файл Betmo Regular Cyr.otf нужно положить локально в `public/fonts/`.
+
+
+## v15
+
+- изображения Ольги переведены в фон секций;
+- больше нет media-card, из-за которого отбивка сбивала композицию;
+- CTA теперь uppercase: `ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ`;
+- Betmo Cyr оставлен с весом 400;
+- отбивка визуально встроена между секциями и не сдвигает основное изображение внутри блока.
+
+
+## v16
+
+- картинки секций поставлены как `background-size: contain; background-position: center right;`
+- внутри секции сетка `2fr 1fr`: 2/3 под текст, 1/3 пустой воздух справа
+- градиент наложен только на левую 2/3 область: от молочно-белого к прозрачному
+- чередование flip отключено: логика везде единая
+
+
+## v17
+
+Градиент вынесен в `::before` самой секции и стал видимым:
+- поверх background-image;
+- z-index ниже текста;
+- ширина 72%;
+- слева почти белый, справа прозрачный.
+
+Старые `.hero__overlay` / `.story-section__overlay` выключены через `display:none`.
+
+
+## v18
+
+- добавлен блок оглавления услуг после Hero;
+- обновлены названия секций и тезисы;
+- оглавление отделяет Hero от основной истории услуг.

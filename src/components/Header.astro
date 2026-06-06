@@ -1,0 +1,37 @@
+<header class="site-header">
+  <a class="logo" href="/"><img src="/images/otk-logo.svg"></a>
+
+  <button class="menu-toggle" type="button" aria-label="Открыть меню">
+    Меню
+  </button>
+
+  <nav class="site-nav" aria-label="Главная навигация">
+    <a href="/#about">Ольга</a>
+    <a href="/#requests">Запросы</a>
+    <a href="/#services">Услуги</a>
+    <a href="/services/education">Обучение</a>
+    <a href="/#reviews">Отзывы</a>
+    <a href="/#contact">Контакты</a>
+  </nav>
+</header>
+
+<script>
+  const button = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.site-nav');
+
+  button?.addEventListener('click', () => {
+    nav?.classList.toggle('site-nav--open');
+    button.classList.toggle('menu-toggle--open');
+    button.textContent = nav?.classList.contains('site-nav--open')
+      ? 'Закрыть'
+      : 'Меню';
+  });
+
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('site-nav--open');
+      button?.classList.remove('menu-toggle--open');
+      if (button) button.textContent = 'Меню';
+    });
+  });
+</script>

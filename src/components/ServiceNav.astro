@@ -1,0 +1,166 @@
+---
+const services = [
+  {
+    title: 'Натальная карта',
+    href: '/services/natal',
+  },
+  {
+    title: 'Прогноз на год',
+    href: '/services/solar',
+  },
+  {
+    title: 'Совместимость',
+    href: '/services/synastry',
+  },
+  {
+    title: 'VIP',
+    href: '/services/vip',
+  },
+  {
+    title: 'Обучение астрологии',
+    href: '/services/education',
+  },
+  {
+    title: 'Астролог на мероприятие',
+    href: '/services/events',
+  },
+];
+
+const { current } = Astro.props;
+
+const currentIndex = services.findIndex((service) => service.href === current);
+
+const safeIndex = currentIndex >= 0 ? currentIndex : 0;
+
+const previous =
+  services[(safeIndex - 1 + services.length) % services.length];
+
+const next =
+  services[(safeIndex + 1) % services.length];
+---
+
+<nav class="service-nav" aria-label="Навигация по услугам">
+  <div class="service-nav__inner">
+    <a class="service-nav__link service-nav__link--prev" href={previous.href}>
+      <span>← Предыдущая услуга</span>
+      <strong>{previous.title}</strong>
+    </a>
+
+    <a class="service-nav__all" href="/#services">
+      Все услуги
+    </a>
+
+    <a class="service-nav__link service-nav__link--next" href={next.href}>
+      <span>Следующая услуга →</span>
+      <strong>{next.title}</strong>
+    </a>
+  </div>
+</nav>
+
+<style>
+  .service-nav {
+    position: relative;
+    padding: clamp(54px, 6vw, 86px) 0;
+    background: #fff;
+    color: var(--text, #1f1d1b);
+  }
+
+  .service-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(1440px, calc(100% - 64px));
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(31, 29, 27, 0.12),
+      transparent
+    );
+  }
+
+  .service-nav__inner {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+  }
+
+  .service-nav__link,
+  .service-nav__all {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .service-nav__link {
+    display: grid;
+    gap: 12px;
+  }
+
+  .service-nav__link--next {
+    text-align: right;
+  }
+
+  .service-nav__link span,
+  .service-nav__all {
+    color: var(--accent, #b64646);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .service-nav__link strong {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 2.2vw, 38px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+  .service-nav__all {
+    padding: 12px 16px 11px;
+    border: 1px solid rgba(182, 70, 70, 0.24);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .service-nav__link:hover strong,
+  .service-nav__all:hover {
+    color: var(--accent, #b64646);
+  }
+
+  @media (max-width: 760px) {
+    .service-nav {
+      padding: 48px 0;
+    }
+
+    .service-nav__inner {
+      width: calc(100% - 32px);
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .service-nav::before {
+      width: calc(100% - 32px);
+    }
+
+    .service-nav__link--next {
+      text-align: right;
+    }
+
+    .service-nav__all {
+      width: fit-content;
+      order: -1;
+    }
+
+    .service-nav__link strong {
+  font-size: clamp(24px, 7vw, 32px);
+    }
+  }
+</style>

@@ -1,0 +1,365 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceNav from '../../components/ServiceNav.astro';
+const formats = [
+  'Корпоративы',
+  'Конференции и презентации',
+  'Выставки и фестивали',
+  'Тимбилдинги',
+  'Свадьбы, девичники и частные праздники',
+];
+
+const tariffs = [
+  {
+    name: '1 час работы',
+    price: '20 000 ₽',
+    note: 'Для камерных событий, частных встреч и небольших форматов.',
+  },
+  {
+    name: 'Целый день',
+    price: '100 000 ₽',
+    note: 'До 6 часов работы на мероприятии.',
+  },
+];
+---
+
+<MainLayout
+  title="Астролог на мероприятие | Ольга Ткаченко"
+  description="Астролог на мероприятие: корпоративы, презентации, фестивали, тимбилдинги, свадьбы, девичники и частные события."
+  canonical="/services/events"
+>
+  <main>
+    <section class="service-hero">
+      <div class="service-hero__inner">
+        <p class="service-hero__eyebrow">Астролог на мероприятие</p>
+
+        <h1>
+          Сделайте событие ярче, пригласив астролога.
+        </h1>
+
+        <p class="service-hero__lead">
+          Живой формат для корпоративов, презентаций, фестивалей, девичников,
+          свадеб и закрытых мероприятий.
+        </p>
+
+        <a href="#tariffs" class="service-hero__link">Смотреть условия</a>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Форматы</p>
+          <h2>Где можно пригласить Ольгу.</h2>
+        </div>
+
+        <div class="formats">
+          {formats.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="tariffs" id="tariffs">
+      <div class="tariffs__inner">
+        <div class="tariffs__head">
+          <p class="section-eyebrow">Стоимость</p>
+          <h2>Формат подбирается под событие.</h2>
+        </div>
+
+        <div class="tariffs__grid">
+          {tariffs.map((tariff) => (
+            <article class="tariff-card">
+              <p class="tariff-card__name">{tariff.name}</p>
+              <h3>{tariff.price}</h3>
+              <p>{tariff.note}</p>
+            </article>
+          ))}
+        </div>
+
+        <p class="tariffs__note">
+          Выезд на мероприятие — от 4 часов.
+        </p>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice__inner">
+        <p class="section-eyebrow">Для кого</p>
+        <h2>Когда хочется не просто развлечения, а живого впечатления.</h2>
+        <p>
+          Астрологический формат хорошо работает там, где важно создать
+          атмосферу, вовлечь гостей и оставить у каждого ощущение персонального
+          контакта.
+        </p>
+      </div>
+    </section>
+<ServiceNav current="/services/events" />
+    <section class="service-contact" id="contact">
+      <div class="service-contact__inner">
+        <p class="service-contact__script">Для события</p>
+        <h2>Обсудим формат вашего мероприятия.</h2>
+        <p>Напишите Ольге, чтобы уточнить дату, площадку и продолжительность.</p>
+
+        <div class="service-contact__links">
+          <a href="t.me/astrologOlgaTkachenko" target="_blank" rel="noreferrer">Telegram</a>
+    <!-- a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a-->
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .service-hero {
+    min-height: 86svh;
+    padding: clamp(120px, 12vw, 190px) 0 clamp(80px, 8vw, 130px);
+    display: grid;
+    align-items: center;
+    background:
+      radial-gradient(circle at 82% 20%, rgba(182, 70, 70, 0.08), transparent 34%),
+      linear-gradient(180deg, #fff 0%, #fbf8f4 100%);
+    color: var(--text);
+  }
+
+  .service-hero__inner,
+  .service-section__inner,
+  .tariffs__inner,
+  .notice__inner,
+  .service-contact__inner {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .service-hero__eyebrow,
+  .section-eyebrow {
+    margin: 0 0 20px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .service-hero h1 {
+    margin: 0;
+    max-width: 820px;
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 6vw, 86px);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+  }
+
+  .service-hero__lead {
+    margin: 34px 0 0;
+    max-width: 620px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .service-hero__link,
+  .service-contact__links a {
+    display: inline-block;
+    margin-top: 42px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(182, 70, 70, 0.34);
+    padding-bottom: 6px;
+  }
+
+  .service-section,
+  .tariffs {
+    padding: clamp(80px, 9vw, 130px) 0;
+    background: #fff;
+  }
+
+  .service-section__inner--split {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 7vw, 112px);
+    align-items: start;
+  }
+
+  .service-section h2,
+  .tariffs h2,
+  .notice h2,
+  .service-contact h2 {
+    margin: 0;
+    max-width: 620px;
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 3.8vw, 56px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+
+  .formats {
+    display: grid;
+    border-top: 1px solid rgba(31, 29, 27, 0.1);
+  }
+
+  .formats p {
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 29, 27, 0.1);
+    color: rgba(31, 29, 27, 0.74);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .tariffs {
+    background: #fbf8f4;
+  }
+
+  .tariffs__head {
+    max-width: 720px;
+    margin-bottom: clamp(44px, 5vw, 70px);
+  }
+
+  .tariffs__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .tariff-card {
+    min-height: 300px;
+    padding: clamp(28px, 3vw, 38px);
+    background: #fff;
+    border: 1px solid rgba(31, 29, 27, 0.08);
+    border-radius: 30px;
+  }
+
+  .tariff-card__name {
+    margin: 0 0 22px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .tariff-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(42px, 4vw, 64px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .tariff-card p:not(.tariff-card__name) {
+    margin: 28px 0 0;
+    max-width: 420px;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .tariffs__note {
+    margin: 28px 0 0;
+    color: rgba(31, 29, 27, 0.58);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .notice {
+    padding: clamp(74px, 8vw, 120px) 0;
+    background: #fff;
+  }
+
+  .notice p:last-child {
+    margin: 26px 0 0;
+    max-width: 760px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact {
+    min-height: 78svh;
+    padding: clamp(100px, 11vw, 180px) 0;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95), transparent 56%),
+      var(--bg);
+  }
+
+  .service-contact__inner {
+    display: grid;
+    justify-items: center;
+  }
+
+  .service-contact__script {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-family: var(--font-script);
+    font-size: clamp(54px, 6vw, 82px);
+    line-height: 0.9;
+  }
+
+  .service-contact p:not(.service-contact__script) {
+    margin: 26px 0 0;
+    max-width: 560px;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact__links {
+    display: flex;
+    gap: 28px;
+  }
+
+  @media (max-width: 980px) {
+    .service-section__inner--split,
+    .tariffs__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .service-hero__inner,
+    .service-section__inner,
+    .tariffs__inner,
+    .notice__inner,
+    .service-contact__inner {
+      width: calc(100% - 32px);
+    }
+
+    .service-hero {
+      min-height: auto;
+      padding: 120px 0 78px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .service-section,
+    .tariffs {
+      padding: 68px 0;
+    }
+
+    .tariff-card {
+      min-height: auto;
+    }
+
+    .service-contact__links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

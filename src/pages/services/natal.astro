@@ -1,0 +1,542 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceNav from '../../components/ServiceNav.astro';
+const questions = [
+  'Как увеличить доход и в каких сферах находятся ваши деньги',
+  'Какой формат реализации подходит: найм, своё дело или фриланс',
+  'Какой партнёр вам подходит и какие сценарии повторяются в отношениях',
+  'Какие у вас таланты, сильные стороны и предназначение',
+  'Что вас наполняет, мотивирует и помогает не выгорать',
+];
+
+const tariffs = [
+  {
+    name: 'Стандарт',
+    format: 'Онлайн-консультация',
+    price: '45 000 ₽',
+    items: [
+      'личность, психотип и характер',
+      'таланты и способы реализации',
+      'финансы, работа и доход',
+      'любовь и сценарии отношений',
+      'ответы на личные вопросы',
+      'Zoom-консультация 1,5 часа',
+      'видеозапись встречи',
+    ],
+  },
+  {
+    name: 'Полный пакет',
+    format: 'Личная встреча в Москве',
+    price: '55 000 ₽',
+    items: [
+      'всё из тарифа Стандарт',
+      'экспресс-Соляр: прогноз на год',
+      'подбор города или страны для встречи дня рождения',
+      'пошаговая стратегия роста',
+      'ректификация времени рождения',
+      'личная консультация 2 часа',
+      'аудиозапись встречи',
+    ],
+  },
+  {
+    name: 'VIP',
+    format: 'Личная встреча + прогноз на год',
+    price: '120 000 ₽',
+    items: [
+      'полный разбор натальной карты',
+      'подробный прогноз по месяцам на год',
+      'благоприятные даты для важных решений',
+      'подбор места встречи Соляра',
+      'напечатанная персональная карта',
+      'ректификация времени рождения',
+      '5 дополнительных вопросов в течение года',
+    ],
+  },
+];
+---
+
+<MainLayout
+  title="Натальная карта — разбор личности, денег и отношений | Ольга Ткаченко"
+  description="Натальная карта с Ольгой Ткаченко: разбор характера, талантов, финансов, отношений, предназначения и жизненных сценариев."
+  canonical="/services/natal"
+>
+  <main>
+    <section class="service-hero">
+      <div class="service-hero__inner">
+        <p class="service-hero__eyebrow">Натальная карта</p>
+
+        <h1>
+          Базовый разбор, который помогает увидеть себя яснее.
+        </h1>
+
+        <p class="service-hero__lead">
+          Натальная карта рождения — это персональный гороскоп, который не
+          меняется с годами. Он показывает ваши таланты, характер, сценарии,
+          возможности реализации, отношения, деньги и внутренний ресурс.
+        </p>
+
+        <a href="#tariffs" class="service-hero__link">Смотреть тарифы</a>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">В карте есть ответы</p>
+          <h2>Не только “кто я”, но и куда двигаться дальше.</h2>
+        </div>
+
+        <div class="question-list">
+          {questions.map((question) => (
+            <p>{question}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Что разбираем</p>
+          <h2>Четыре главные сферы вашей карты.</h2>
+        </div>
+
+        <div class="areas">
+          <article>
+            <h3>Финансы</h3>
+            <p>
+              Где находятся ваши деньги, как увеличить доход и какой формат
+              работы подходит именно вам.
+            </p>
+          </article>
+
+          <article>
+            <h3>Любовь</h3>
+            <p>
+              Какой партнёр вам подходит, какие потребности есть в отношениях
+              и что мешает близости.
+            </p>
+          </article>
+
+          <article>
+            <h3>Предназначение</h3>
+            <p>
+              Таланты, сильные стороны, жизненные сценарии и точки раскрытия
+              потенциала.
+            </p>
+          </article>
+
+          <article>
+            <h3>Энергия</h3>
+            <p>
+              Что вас зажигает, что забирает силы и как возвращаться к своему
+              естественному ритму.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariffs" id="tariffs">
+      <div class="tariffs__inner">
+        <div class="tariffs__head">
+          <p class="section-eyebrow">Тарифы</p>
+          <h2>Выберите формат консультации.</h2>
+        </div>
+
+        <div class="tariffs__grid">
+          {tariffs.map((tariff) => (
+            <article class="tariff-card">
+              <div>
+                <p class="tariff-card__name">{tariff.name}</p>
+                <h3>{tariff.price}</h3>
+                <p class="tariff-card__format">{tariff.format}</p>
+              </div>
+
+              <ul>
+                {tariff.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+
+              <a href="#contact">Оставить заявку</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Как проходит</p>
+          <h2>Спокойный процесс без лишней сложности.</h2>
+        </div>
+
+        <div class="steps">
+          <p><span>01</span> Вы оставляете заявку и выбираете тариф.</p>
+          <p><span>02</span> Мы подбираем дату консультации.</p>
+          <p><span>03</span> Вы заполняете данные для расчёта карты.</p>
+          <p><span>04</span> На встрече получаете подробный разбор и ответы.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice__inner">
+        <p class="section-eyebrow">Важно</p>
+        <h2>Для точного разбора нужно знать время рождения.</h2>
+        <p>
+          Если точное время рождения неизвестно, потребуется ректификация —
+          вычисление времени рождения до минут. Стоимость ректификации —
+          10 000 ₽.
+        </p>
+      </div>
+    </section>
+<ServiceNav current="/services/natal" />
+    <section class="service-contact" id="contact">
+      <div class="service-contact__inner">
+        <p class="service-contact__script">Если нужна ясность</p>
+        <h2>Запишитесь на разбор натальной карты.</h2>
+        <p>Напишите Ольге, чтобы выбрать формат консультации.</p>
+
+        <div class="service-contact__links">
+          <a href="t.me/astrologOlgaTkachenko" target="_blank" rel="noreferrer">Telegram</a>
+    <!-- a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a-->
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .service-hero {
+    min-height: 86svh;
+    padding: clamp(120px, 12vw, 190px) 0 clamp(80px, 8vw, 130px);
+    display: grid;
+    align-items: center;
+    background:
+      radial-gradient(circle at 82% 20%, rgba(182, 70, 70, 0.08), transparent 34%),
+      linear-gradient(180deg, #fff 0%, #fbf8f4 100%);
+    color: var(--text);
+  }
+
+  .service-hero__inner,
+  .service-section__inner,
+  .tariffs__inner,
+  .notice__inner,
+  .service-contact__inner {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .service-hero__eyebrow,
+  .section-eyebrow {
+    margin: 0 0 20px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .service-hero h1 {
+    margin: 0;
+    max-width: 820px;
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 6vw, 86px);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+  }
+
+  .service-hero__lead {
+    margin: 34px 0 0;
+    max-width: 680px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .service-hero__link,
+  .tariff-card a,
+  .service-contact__links a {
+    display: inline-block;
+    margin-top: 42px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(182, 70, 70, 0.34);
+    padding-bottom: 6px;
+  }
+
+  .service-section {
+    padding: clamp(80px, 9vw, 130px) 0;
+    background: #fff;
+  }
+
+  .service-section--soft {
+    background: #fbf8f4;
+  }
+
+  .service-section__inner--split {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 7vw, 112px);
+    align-items: start;
+  }
+
+  .service-section h2,
+  .tariffs h2,
+  .notice h2,
+  .service-contact h2 {
+    margin: 0;
+    max-width: 620px;
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 3.8vw, 56px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+
+  .question-list {
+    display: grid;
+    border-top: 1px solid rgba(31, 29, 27, 0.1);
+  }
+
+  .question-list p {
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 29, 27, 0.1);
+    color: rgba(31, 29, 27, 0.74);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .areas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .areas article {
+    min-height: 220px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid rgba(31, 29, 27, 0.08);
+    border-radius: 28px;
+  }
+
+  .areas h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 2.8vw, 42px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .areas p {
+    margin: 22px 0 0;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .tariffs {
+    padding: clamp(86px, 10vw, 150px) 0;
+    background: #fff;
+  }
+
+  .tariffs__head {
+    max-width: 720px;
+    margin-bottom: clamp(44px, 5vw, 70px);
+  }
+
+  .tariffs__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .tariff-card {
+    padding: clamp(28px, 3vw, 38px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 620px;
+    background: #fbf8f4;
+    border: 1px solid rgba(31, 29, 27, 0.08);
+    border-radius: 30px;
+  }
+
+  .tariff-card__name {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .tariff-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 3.4vw, 52px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .tariff-card__format {
+    margin: 16px 0 0;
+    color: rgba(31, 29, 27, 0.56);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .tariff-card ul {
+    margin: 34px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+  }
+
+  .tariff-card li {
+    color: rgba(31, 29, 27, 0.7);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .tariff-card li::before {
+    content: '— ';
+    color: var(--accent);
+  }
+
+  .steps {
+    display: grid;
+    border-top: 1px solid rgba(31, 29, 27, 0.1);
+  }
+
+  .steps p {
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 29, 27, 0.1);
+    color: rgba(31, 29, 27, 0.72);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .steps span {
+    display: inline-block;
+    width: 54px;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+  }
+
+  .notice {
+    padding: clamp(74px, 8vw, 120px) 0;
+    background: #fbf8f4;
+  }
+
+  .notice p:last-child {
+    margin: 26px 0 0;
+    max-width: 760px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact {
+    min-height: 78svh;
+    padding: clamp(100px, 11vw, 180px) 0;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95), transparent 56%),
+      var(--bg);
+  }
+
+  .service-contact__inner {
+    display: grid;
+    justify-items: center;
+  }
+
+  .service-contact__script {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-family: var(--font-script);
+    font-size: clamp(54px, 6vw, 82px);
+    line-height: 0.9;
+  }
+
+  .service-contact p:not(.service-contact__script) {
+    margin: 26px 0 0;
+    max-width: 560px;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact__links {
+    display: flex;
+    gap: 28px;
+  }
+
+  @media (max-width: 980px) {
+    .service-section__inner--split,
+    .tariffs__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tariff-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .service-hero__inner,
+    .service-section__inner,
+    .tariffs__inner,
+    .notice__inner,
+    .service-contact__inner {
+      width: calc(100% - 32px);
+    }
+
+    .service-hero {
+      min-height: auto;
+      padding: 120px 0 78px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .service-section,
+    .tariffs {
+      padding: 68px 0;
+    }
+
+    .areas {
+      grid-template-columns: 1fr;
+    }
+
+    .areas article {
+      min-height: auto;
+    }
+
+    .service-contact__links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

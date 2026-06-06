@@ -1,0 +1,555 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceNav from '../../components/ServiceNav.astro';
+const questions = [
+  'Какие потребности в отношениях есть у вас и вашего партнёра',
+  'Насколько вы совместимы в быту, общении и сексуальной сфере',
+  'Почему повторяются конфликты и где возникают точки напряжения',
+  'Как улучшить близость и перейти на новый уровень отношений',
+  'Какие сценарии и кармические уроки проявляются в паре',
+];
+
+const tariffs = [
+  {
+    name: 'Стандарт',
+    format: 'Онлайн-консультация',
+    price: '50 000 ₽',
+    items: [
+      'разбор вашей натальной карты по теме отношений',
+      'разбор карты партнёра по теме отношений',
+      'подробный разбор карты совместимости',
+      'потребности в любви у каждого партнёра',
+      'сексуальная, бытовая и интеллектуальная совместимость',
+      'ведущие сценарии в отношениях',
+      'кармические уроки пары',
+      'конкретные шаги по улучшению отношений',
+      'видеозапись консультации',
+    ],
+  },
+  {
+    name: 'Полный пакет',
+    format: 'Личная встреча в Москве',
+    price: '80 000 ₽',
+    items: [
+      'всё из тарифа Стандарт',
+      'личная консультация с вами и партнёром',
+      'глубокий анализ трёх карт',
+      'персональный план действий по улучшению отношений',
+      'домашнее задание для пары',
+      'аудиозапись консультации',
+      'время консультации — до 4 часов',
+    ],
+  },
+];
+---
+
+<MainLayout
+  title="Синастрия — совместимость партнёров | Ольга Ткаченко"
+  description="Синастрия с Ольгой Ткаченко: разбор совместимости, потребностей партнёров, сценариев отношений и точек напряжения в паре."
+  canonical="/services/synastry"
+>
+  <main>
+    <section class="service-hero">
+      <div class="service-hero__inner">
+        <p class="service-hero__eyebrow">Синастрия</p>
+
+        <h1>
+          Разбор отношений, который помогает увидеть пару яснее.
+        </h1>
+
+        <p class="service-hero__lead">
+          Синастрия — это карта совместимости двух людей. Она показывает,
+          как устроены ваши потребности, где возникает притяжение, где
+          появляются конфликты и что помогает паре выйти на новый уровень.
+        </p>
+
+        <a href="#tariffs" class="service-hero__link">Смотреть тарифы</a>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">В карте синастрии</p>
+          <h2>Можно увидеть не только совместимость, но и сценарий пары.</h2>
+        </div>
+
+        <div class="question-list">
+          {questions.map((question) => (
+            <p>{question}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Что разбираем</p>
+          <h2>Три карты, которые показывают динамику отношений.</h2>
+        </div>
+
+        <div class="areas">
+          <article>
+            <h3>Ваша карта</h3>
+            <p>
+              Ваш язык любви, темперамент, ожидания, потребности и привычные
+              сценарии в отношениях.
+            </p>
+          </article>
+
+          <article>
+            <h3>Карта партнёра</h3>
+            <p>
+              Его или её подход к любви, близости, браку, конфликтам и
+              эмоциональной безопасности.
+            </p>
+          </article>
+
+          <article>
+            <h3>Карта пары</h3>
+            <p>
+              Сексуальная, бытовая, эмоциональная и интеллектуальная
+              совместимость между вами.
+            </p>
+          </article>
+
+          <article>
+            <h3>План действий</h3>
+            <p>
+              Конкретные шаги, которые помогают снизить напряжение и улучшить
+              качество связи.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariffs" id="tariffs">
+      <div class="tariffs__inner">
+        <div class="tariffs__head">
+          <p class="section-eyebrow">Тарифы</p>
+          <h2>Выберите формат разбора отношений.</h2>
+        </div>
+
+        <div class="tariffs__grid tariffs__grid--two">
+          {tariffs.map((tariff) => (
+            <article class="tariff-card">
+              <div>
+                <p class="tariff-card__name">{tariff.name}</p>
+                <h3>{tariff.price}</h3>
+                <p class="tariff-card__format">{tariff.format}</p>
+              </div>
+
+              <ul>
+                {tariff.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+
+              <a href="#contact">Оставить заявку</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Как проходит</p>
+          <h2>От заявки до личного разбора вашей пары.</h2>
+        </div>
+
+        <div class="steps">
+          <p><span>01</span> Вы оставляете заявку и выбираете тариф.</p>
+          <p><span>02</span> Мы подбираем дату консультации.</p>
+          <p><span>03</span> Вы заполняете данные для расчёта двух карт.</p>
+          <p><span>04</span> На встрече разбираем вашу карту, карту партнёра и карту совместимости.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice__inner">
+        <p class="section-eyebrow">Важно</p>
+        <h2>Для точного разбора нужно знать время рождения.</h2>
+        <p>
+          Для синастрии желательно знать точное время рождения обоих партнёров.
+          Если время неизвестно, потребуется ректификация — вычисление времени
+          рождения до минут. Стоимость ректификации — 10 000 ₽.
+        </p>
+      </div>
+    </section>
+
+    <section class="notice notice--white">
+      <div class="notice__inner">
+        <p class="section-eyebrow">Обратная связь</p>
+        <h2>Уточняющие вопросы можно задать после консультации.</h2>
+        <p>
+          В течение двух дней после консультации вы можете задать уточняющие
+          вопросы. В остальное время дополнительные вопросы оплачиваются
+          отдельно — 10 000 ₽ за один вопрос.
+        </p>
+      </div>
+    </section>
+<ServiceNav current="/services/synastry" />
+    <section class="service-contact" id="contact">
+      <div class="service-contact__inner">
+        <p class="service-contact__script">Если нужна ясность в отношениях</p>
+        <h2>Запишитесь на синастрию.</h2>
+        <p>Напишите Ольге, чтобы выбрать формат консультации.</p>
+
+        <div class="service-contact__links">
+          <a href="t.me/astrologOlgaTkachenko" target="_blank" rel="noreferrer">Telegram</a>
+    <!-- a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a-->
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .service-hero {
+    min-height: 86svh;
+    padding: clamp(120px, 12vw, 190px) 0 clamp(80px, 8vw, 130px);
+    display: grid;
+    align-items: center;
+    background:
+      radial-gradient(circle at 82% 20%, rgba(182, 70, 70, 0.08), transparent 34%),
+      linear-gradient(180deg, #fff 0%, #fbf8f4 100%);
+    color: var(--text);
+  }
+
+  .service-hero__inner,
+  .service-section__inner,
+  .tariffs__inner,
+  .notice__inner,
+  .service-contact__inner {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .service-hero__eyebrow,
+  .section-eyebrow {
+    margin: 0 0 20px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .service-hero h1 {
+    margin: 0;
+    max-width: 860px;
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 6vw, 86px);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+  }
+
+  .service-hero__lead {
+    margin: 34px 0 0;
+    max-width: 680px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .service-hero__link,
+  .tariff-card a,
+  .service-contact__links a {
+    display: inline-block;
+    margin-top: 42px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(182, 70, 70, 0.34);
+    padding-bottom: 6px;
+  }
+
+  .service-section {
+    padding: clamp(80px, 9vw, 130px) 0;
+    background: #fff;
+  }
+
+  .service-section--soft {
+    background: #fbf8f4;
+  }
+
+  .service-section__inner--split {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 7vw, 112px);
+    align-items: start;
+  }
+
+  .service-section h2,
+  .tariffs h2,
+  .notice h2,
+  .service-contact h2 {
+    margin: 0;
+    max-width: 620px;
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 3.8vw, 56px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+
+  .question-list {
+    display: grid;
+    border-top: 1px solid rgba(31, 29, 27, 0.1);
+  }
+
+  .question-list p {
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 29, 27, 0.1);
+    color: rgba(31, 29, 27, 0.74);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .areas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .areas article {
+    min-height: 220px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid rgba(31, 29, 27, 0.08);
+    border-radius: 28px;
+  }
+
+  .areas h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 2.8vw, 42px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .areas p {
+    margin: 22px 0 0;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .tariffs {
+    padding: clamp(86px, 10vw, 150px) 0;
+    background: #fff;
+  }
+
+  .tariffs__head {
+    max-width: 720px;
+    margin-bottom: clamp(44px, 5vw, 70px);
+  }
+
+  .tariffs__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .tariffs__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tariff-card {
+    padding: clamp(28px, 3vw, 38px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 620px;
+    background: #fbf8f4;
+    border: 1px solid rgba(31, 29, 27, 0.08);
+    border-radius: 30px;
+  }
+
+  .tariff-card__name {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .tariff-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 3.4vw, 52px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .tariff-card__format {
+    margin: 16px 0 0;
+    color: rgba(31, 29, 27, 0.56);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .tariff-card ul {
+    margin: 34px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+  }
+
+  .tariff-card li {
+    color: rgba(31, 29, 27, 0.7);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .tariff-card li::before {
+    content: '— ';
+    color: var(--accent);
+  }
+
+  .steps {
+    display: grid;
+    border-top: 1px solid rgba(31, 29, 27, 0.1);
+  }
+
+  .steps p {
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 29, 27, 0.1);
+    color: rgba(31, 29, 27, 0.72);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .steps span {
+    display: inline-block;
+    width: 54px;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+  }
+
+  .notice {
+    padding: clamp(74px, 8vw, 120px) 0;
+    background: #fbf8f4;
+  }
+
+  .notice--white {
+    background: #fff;
+  }
+
+  .notice p:last-child {
+    margin: 26px 0 0;
+    max-width: 760px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact {
+    min-height: 78svh;
+    padding: clamp(100px, 11vw, 180px) 0;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95), transparent 56%),
+      var(--bg);
+  }
+
+  .service-contact__inner {
+    display: grid;
+    justify-items: center;
+  }
+
+  .service-contact__script {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-family: var(--font-script);
+    font-size: clamp(50px, 5.4vw, 76px);
+    line-height: 0.9;
+  }
+
+  .service-contact p:not(.service-contact__script) {
+    margin: 26px 0 0;
+    max-width: 560px;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact__links {
+    display: flex;
+    gap: 28px;
+  }
+
+  @media (max-width: 980px) {
+    .service-section__inner--split,
+    .tariffs__grid,
+    .tariffs__grid--two {
+      grid-template-columns: 1fr;
+    }
+
+    .tariff-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .service-hero__inner,
+    .service-section__inner,
+    .tariffs__inner,
+    .notice__inner,
+    .service-contact__inner {
+      width: calc(100% - 32px);
+    }
+
+    .service-hero {
+      min-height: auto;
+      padding: 120px 0 78px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .service-section,
+    .tariffs {
+      padding: 68px 0;
+    }
+
+    .areas {
+      grid-template-columns: 1fr;
+    }
+
+    .areas article {
+      min-height: auto;
+    }
+
+    .service-contact__script {
+      font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .service-contact__links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

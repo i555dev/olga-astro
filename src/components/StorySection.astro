@@ -1,0 +1,26 @@
+---
+const { service, flip = false } = Astro.props;
+const bgStyle = `--bg-image: url('${service.image}')`;
+const href = service.href || "#contact";
+---
+
+<section
+  class:list={["story-section", "story-bg", { "story-section--flip": flip }]}
+  id={service.slug}
+  style={bgStyle}
+>
+  <div class="story-section__overlay"></div>
+
+  <div class="story-section__inner">
+    <div class="story-section__copy">
+      <h2>{service.title}</h2>
+      {service.script && <p class="script-title">{service.script}</p>}
+
+      <ul>
+        {service.items.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <a href={href} class="service-link">→ {service.cta}</a>
+    </div>
+  </div>
+</section>

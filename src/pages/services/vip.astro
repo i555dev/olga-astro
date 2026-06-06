@@ -1,0 +1,384 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceNav from '../../components/ServiceNav.astro';
+const pillars = [
+  {
+    title: 'Личность',
+    text:
+      'Подробный разбор характера, психотипа, сильных сторон, талантов и жизненных сценариев.',
+  },
+  {
+    title: 'Финансы',
+    text:
+      'Где находятся ваши деньги, как увеличить доход и какие направления дают максимальный результат.',
+  },
+  {
+    title: 'Отношения',
+    text:
+      'Подходящий тип партнёра, сценарии любви, потребности и механика счастливых отношений.',
+  },
+  {
+    title: 'Прогноз',
+    text:
+      'Ключевые события предстоящего года, важные периоды и благоприятные даты.',
+  },
+];
+
+const benefits = [
+  'Полный разбор натальной карты',
+  'Подробный прогноз по месяцам на год вперёд',
+  'Подбор благоприятных дат для важных решений',
+  'Прогноз сложных и напряжённых периодов',
+  'Подбор города или страны для встречи Соляра',
+  'Напечатанная персональная карта',
+  'Пошаговая стратегия роста',
+  'Ректификация времени рождения',
+  '5 дополнительных вопросов в течение года',
+  'Личная консультация 2 часа',
+];
+---
+
+<MainLayout
+  title="VIP-разбор — натальная карта и прогноз на год | Ольга Ткаченко"
+  description="VIP-программа с Ольгой Ткаченко: полный разбор натальной карты, прогноз на год, стратегия роста, ректификация и сопровождение."
+  canonical="/services/vip"
+>
+  <main>
+    <section class="service-hero">
+      <div class="service-hero__inner">
+        <p class="service-hero__eyebrow">VIP</p>
+
+        <h1>
+          Самая глубокая работа над вашей картой и будущим годом.
+        </h1>
+
+        <p class="service-hero__lead">
+          VIP-программа объединяет полный разбор личности, финансов,
+          отношений, предназначения и прогноз на предстоящий год в одной
+          консультации.
+        </p>
+
+        <div class="hero-price">
+          <span>120 000 ₽</span>
+          <p>Личная встреча в Москве</p>
+        </div>
+
+        <a href="#contact" class="service-hero__link">
+          Оставить заявку
+        </a>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner">
+        <div class="section-head">
+          <p class="section-eyebrow">Что входит</p>
+          <h2>Полная картина вашей жизни.</h2>
+        </div>
+
+        <div class="pillars-grid">
+          {pillars.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Дополнительно</p>
+          <h2>
+            Всё, что обычно заказывают отдельно, уже включено в программу.
+          </h2>
+        </div>
+
+        <div class="benefits">
+          {benefits.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Результат</p>
+          <h2>После консультации у вас появляется план.</h2>
+        </div>
+
+        <div class="result">
+          <p>
+            Вы понимаете свои сильные стороны, видите точки роста и получаете
+            стратегию действий на ближайший год.
+          </p>
+
+          <p>
+            Это не набор абстрактных рекомендаций, а персональная карта
+            решений, построенная на ваших данных рождения.
+          </p>
+
+          <p>
+            Многие клиенты используют этот формат как основу для принятия
+            карьерных, финансовых и личных решений.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice__inner">
+        <p class="section-eyebrow">Важно</p>
+
+        <h2>
+          В программу входит ректификация времени рождения.
+        </h2>
+
+        <p>
+          Даже если вы не знаете точное время рождения, оно будет рассчитано
+          в рамках VIP-программы и включено в стоимость.
+        </p>
+      </div>
+    </section>
+    <ServiceNav current="/services/vip" />
+    <section class="service-contact" id="contact">
+      <div class="service-contact__inner">
+        <p class="service-contact__script">VIP</p>
+
+        <h2>
+          Если нужен самый полный разбор.
+        </h2>
+
+        <p>
+          Напишите Ольге, чтобы выбрать дату консультации.
+        </p>
+
+        <div class="service-contact__links">
+          <a href="t.me/astrologOlgaTkachenko" target="_blank" rel="noreferrer">Telegram</a>
+    <!-- a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a-->
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .service-hero {
+    min-height: 86svh;
+    padding: clamp(120px, 12vw, 190px) 0;
+    display: grid;
+    align-items: center;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(182,70,70,.08), transparent 34%),
+      linear-gradient(180deg,#fff 0%,#fbf8f4 100%);
+  }
+
+  .service-hero__inner,
+  .service-section__inner,
+  .notice__inner,
+  .service-contact__inner {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .service-hero__eyebrow,
+  .section-eyebrow {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+
+  .service-hero h1 {
+    margin: 0;
+    max-width: 900px;
+    font-family: var(--font-serif);
+    font-size: clamp(52px, 6vw, 92px);
+    line-height: .95;
+    font-weight: 400;
+    letter-spacing: -.05em;
+  }
+
+  .service-hero__lead {
+    max-width: 700px;
+    margin: 32px 0 0;
+    color: rgba(31,29,27,.68);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .hero-price {
+    margin-top: 42px;
+  }
+
+  .hero-price span {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(44px,4vw,64px);
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .hero-price p {
+    margin: 10px 0 0;
+    color: rgba(31,29,27,.56);
+  }
+
+  .service-hero__link,
+  .service-contact__links a {
+    display: inline-block;
+    margin-top: 42px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(182,70,70,.3);
+    padding-bottom: 6px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+
+  .service-section {
+    padding: clamp(80px,9vw,130px) 0;
+  }
+
+  .service-section--soft {
+    background: #fbf8f4;
+  }
+
+  .section-head {
+    max-width: 700px;
+    margin-bottom: 56px;
+  }
+
+  .section-head h2,
+  .service-section h2,
+  .notice h2,
+  .service-contact h2 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(38px,3.8vw,56px);
+    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -.03em;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+  }
+
+  .pillars-grid article {
+    padding: 30px;
+    background: #fbf8f4;
+    border: 1px solid rgba(31,29,27,.08);
+    border-radius: 28px;
+  }
+
+  .pillars-grid h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 34px;
+    font-weight: 400;
+  }
+
+  .pillars-grid p {
+    margin: 18px 0 0;
+    line-height: 1.65;
+    color: rgba(31,29,27,.65);
+  }
+
+  .service-section__inner--split {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 80px;
+  }
+
+  .benefits {
+    border-top: 1px solid rgba(31,29,27,.1);
+  }
+
+  .benefits p {
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(31,29,27,.1);
+    color: rgba(31,29,27,.72);
+  }
+
+  .result p {
+    color: rgba(31,29,27,.7);
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  .notice {
+    padding: clamp(70px,8vw,120px) 0;
+    background: #fbf8f4;
+  }
+
+  .notice p:last-child {
+    margin-top: 24px;
+    max-width: 760px;
+    line-height: 1.7;
+    color: rgba(31,29,27,.65);
+  }
+
+  .service-contact {
+    min-height: 75svh;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    padding: clamp(100px,10vw,180px) 0;
+  }
+
+  .service-contact__inner {
+    display: grid;
+    justify-items: center;
+  }
+
+  .service-contact__script {
+    margin: 0;
+    color: var(--accent);
+    font-family: var(--font-script);
+    font-size: clamp(54px,6vw,82px);
+  }
+
+  .service-contact__links {
+    display: flex;
+    gap: 24px;
+  }
+
+  @media (max-width: 980px) {
+    .pillars-grid,
+    .service-section__inner--split {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .service-hero__inner,
+    .service-section__inner,
+    .notice__inner,
+    .service-contact__inner {
+      width: calc(100% - 32px);
+    }
+
+    .service-hero h1 {
+      font-size: clamp(42px,12vw,58px);
+    }
+
+    .service-section {
+      padding: 68px 0;
+    }
+
+    .service-contact__links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

@@ -1,0 +1,526 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceNav from '../../components/ServiceNav.astro';
+const audience = [
+  'Вы хотите изучать астрологию с нуля',
+  'Вы уже знаете основы, но не умеете собирать карту в цельную картину',
+  'Вы хотите лучше понимать себя и близких',
+  'Вы рассматриваете астрологию как новую профессию',
+  'Вы хотите консультировать и зарабатывать на астрологии',
+];
+
+const program = [
+  {
+    title: '1 курс: Ученик',
+    items: [
+      'азбука астрологии',
+      'профориентация',
+      'астрология финансов',
+      'астрология личных отношений',
+    ],
+  },
+  {
+    title: '2 курс: Практик',
+    items: [
+      '12 кодов жизни',
+      'прогностика',
+      'совместимость партнёров',
+      'кармическая астрология',
+    ],
+  },
+  {
+    title: '3 курс: Профессионал',
+    items: [
+      'ректификация гороскопа',
+      'элективная астрология',
+      'компенсаторные возможности карты',
+      'этика и этапы консультирования',
+    ],
+  },
+];
+
+const tariffs = [
+  {
+    name: 'Стандарт',
+    price: '85 000 ₽',
+    items: [
+      '7 групповых живых встреч',
+      'проверка домашнего задания',
+      'экзамен и защита эссе о себе',
+      'книги в подарок по завершению курса',
+    ],
+  },
+  {
+    name: 'Полный пакет',
+    price: '125 000 ₽',
+    items: [
+      'индивидуальная консультация по натальной карте',
+      'прогноз на предстоящий год',
+      '7 групповых живых встреч',
+      'проверка домашнего задания',
+      'воркбук «Финансы» в подарок',
+      'книги в подарок',
+    ],
+  },
+  {
+    name: 'Индивидуальное обучение',
+    price: '200 000 ₽',
+    items: [
+      'натальная карта + прогноз на год',
+      'пошаговая стратегия роста',
+      '10 индивидуальных уроков',
+      'экзамен и защита эссе о себе',
+      'книги в подарок',
+    ],
+  },
+  {
+    name: 'Наставничество',
+    price: '400 000 ₽',
+    items: [
+      'индивидуальное обучение 1 курса',
+      'индивидуальное обучение 2 курса',
+      'обучение ректификации',
+      '8 практических уроков в группе',
+      'экзамен и защита эссе',
+      'возможное трудоустройство при прохождении экзаменов',
+    ],
+  },
+];
+---
+
+<MainLayout
+  title="Обучение астрологии | Ольга Ткаченко"
+  description="Обучение астрологии с Ольгой Ткаченко: классическая западная астрология, чтение натальных карт, практика и профессиональная подготовка."
+  canonical="/services/education"
+>
+  <main>
+    <section class="service-hero">
+      <div class="service-hero__inner">
+        <p class="service-hero__eyebrow">Обучение астрологии</p>
+
+        <h1>
+          Камерное обучение для тех, кто хочет понимать карты глубоко.
+        </h1>
+
+        <p class="service-hero__lead">
+          Обучение с Ольгой Ткаченко — для тех, кто хочет изучить западную
+          классическую астрологию, научиться читать натальные карты и
+          использовать астрологию как профессию или инструмент понимания людей.
+        </p>
+
+        <a href="#tariffs" class="service-hero__link">Смотреть тарифы</a>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">Для кого</p>
+          <h2>Если вы хотите не просто знать термины, а видеть карту целиком.</h2>
+        </div>
+
+        <div class="list">
+          {audience.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft">
+      <div class="service-section__inner">
+        <div class="section-head">
+          <p class="section-eyebrow">Система</p>
+          <h2>Трёхступенчатая программа обучения.</h2>
+        </div>
+
+        <div class="program-grid">
+          {program.map((step) => (
+            <article>
+              <h3>{step.title}</h3>
+              <ul>
+                {step.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-section__inner service-section__inner--split">
+        <div>
+          <p class="section-eyebrow">После обучения</p>
+          <h2>Вы сможете читать карты и консультировать людей.</h2>
+        </div>
+
+        <div class="result">
+          <p>
+            Вы получите систему знаний по западной классической астрологии и
+            научитесь анализировать гороскопы по основным сферам жизни:
+            семья, дети, деньги, брак, работа, переезды, недвижимость и личные
+            отношения.
+          </p>
+
+          <p>
+            Главная задача обучения — не заучить отдельные элементы, а научиться
+            собирать карту в цельную картину и видеть человека за символами.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariffs" id="tariffs">
+      <div class="tariffs__inner">
+        <div class="tariffs__head">
+          <p class="section-eyebrow">Тарифы</p>
+          <h2>Выберите формат обучения.</h2>
+        </div>
+
+        <div class="tariffs__grid">
+          {tariffs.map((tariff) => (
+            <article class="tariff-card">
+              <div>
+                <p class="tariff-card__name">{tariff.name}</p>
+                <h3>{tariff.price}</h3>
+              </div>
+
+              <ul>
+                {tariff.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+
+              <a href="#contact">Оставить заявку</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice__inner">
+        <p class="section-eyebrow">Формат</p>
+        <h2>Живые встречи с Ольгой Ткаченко.</h2>
+        <p>
+          Обучение проходит в камерном формате. Длительность каждого урока —
+          около 3 часов. Старт, расписание и набор группы уточняются перед
+          запуском потока.
+        </p>
+      </div>
+    </section>
+<ServiceNav current="/services/education" />
+    <section class="service-contact" id="contact">
+      <div class="service-contact__inner">
+        <p class="service-contact__script">Стать астрологом</p>
+        <h2>Оставьте заявку на обучение.</h2>
+        <p>Напишите Ольге, чтобы узнать ближайший старт и формат участия.</p>
+
+        <div class="service-contact__links">
+          <a href="t.me/astrologOlgaTkachenko" target="_blank" rel="noreferrer">Telegram</a>
+    <!-- a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a-->
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .service-hero {
+    min-height: 86svh;
+    padding: clamp(120px, 12vw, 190px) 0 clamp(80px, 8vw, 130px);
+    display: grid;
+    align-items: center;
+    background:
+      radial-gradient(circle at 82% 20%, rgba(182, 70, 70, 0.08), transparent 34%),
+      linear-gradient(180deg, #fff 0%, #fbf8f4 100%);
+    color: var(--text);
+  }
+
+  .service-hero__inner,
+  .service-section__inner,
+  .tariffs__inner,
+  .notice__inner,
+  .service-contact__inner {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .service-hero__eyebrow,
+  .section-eyebrow {
+    margin: 0 0 20px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .service-hero h1 {
+    margin: 0;
+    max-width: 900px;
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 6vw, 86px);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+  }
+
+  .service-hero__lead {
+    margin: 34px 0 0;
+    max-width: 720px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .service-hero__link,
+  .tariff-card a,
+  .service-contact__links a {
+    display: inline-block;
+    margin-top: 42px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(182, 70, 70, 0.34);
+    padding-bottom: 6px;
+  }
+
+  .service-section,
+  .tariffs {
+    padding: clamp(80px, 9vw, 130px) 0;
+    background: #fff;
+  }
+
+  .service-section--soft,
+  .tariffs {
+    background: #fbf8f4;
+  }
+
+  .service-section__inner--split {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 7vw, 112px);
+    align-items: start;
+  }
+
+  .section-head {
+    max-width: 760px;
+    margin-bottom: clamp(44px, 5vw, 70px);
+  }
+
+  .service-section h2,
+  .tariffs h2,
+  .notice h2,
+  .service-contact h2 {
+    margin: 0;
+    max-width: 680px;
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 3.8vw, 56px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+
+  .list {
+    display: grid;
+    border-top: 1px solid rgba(31, 29, 27, 0.1);
+  }
+
+  .list p {
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 29, 27, 0.1);
+    color: rgba(31, 29, 27, 0.74);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .program-grid article,
+  .tariff-card {
+    padding: clamp(28px, 3vw, 38px);
+    background: #fff;
+    border: 1px solid rgba(31, 29, 27, 0.08);
+    border-radius: 30px;
+  }
+
+  .program-grid h3,
+  .tariff-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 3vw, 48px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .program-grid ul,
+  .tariff-card ul {
+    margin: 34px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+  }
+
+  .program-grid li,
+  .tariff-card li {
+    color: rgba(31, 29, 27, 0.7);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .program-grid li::before,
+  .tariff-card li::before {
+    content: '— ';
+    color: var(--accent);
+  }
+
+  .result p {
+    margin: 0 0 22px;
+    color: rgba(31, 29, 27, 0.7);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .tariffs__head {
+    max-width: 720px;
+    margin-bottom: clamp(44px, 5vw, 70px);
+  }
+
+  .tariffs__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .tariff-card {
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tariff-card__name {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .notice {
+    padding: clamp(74px, 8vw, 120px) 0;
+    background: #fff;
+  }
+
+  .notice p:last-child {
+    margin: 26px 0 0;
+    max-width: 760px;
+    color: rgba(31, 29, 27, 0.68);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact {
+    min-height: 78svh;
+    padding: clamp(100px, 11vw, 180px) 0;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95), transparent 56%),
+      var(--bg);
+  }
+
+  .service-contact__inner {
+    display: grid;
+    justify-items: center;
+  }
+
+  .service-contact__script {
+    margin: 0 0 18px;
+    color: var(--accent);
+    font-family: var(--font-script);
+    font-size: clamp(54px, 6vw, 82px);
+    line-height: 0.9;
+  }
+
+  .service-contact p:not(.service-contact__script) {
+    margin: 26px 0 0;
+    max-width: 560px;
+    color: rgba(31, 29, 27, 0.64);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .service-contact__links {
+    display: flex;
+    gap: 28px;
+  }
+
+  @media (max-width: 1180px) {
+    .tariffs__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 980px) {
+    .service-section__inner--split,
+    .program-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tariff-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .service-hero__inner,
+    .service-section__inner,
+    .tariffs__inner,
+    .notice__inner,
+    .service-contact__inner {
+      width: calc(100% - 32px);
+    }
+
+    .service-hero {
+      min-height: auto;
+      padding: 120px 0 78px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .service-section,
+    .tariffs {
+      padding: 68px 0;
+    }
+
+    .tariffs__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-contact__links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>
