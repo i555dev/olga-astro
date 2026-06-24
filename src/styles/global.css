@@ -111,7 +111,7 @@ a.logo img {
 .hero,
 .story-section {
   position: relative;
-  min-height: 100svh;
+  /*min-height: 100svh;*/
   overflow: hidden;
   background-image: var(--bg-image);
   background-size: contain;
@@ -161,7 +161,7 @@ a.logo img {
   min-height: inherit;
   max-width: var(--container);
   margin-inline: auto;
-  padding: clamp(110px, 10vw, 170px) var(--side) clamp(120px, 10vw, 190px);
+  padding: clamp(100px, 10vw, 170px) var(--side) clamp(90px, 10vw, 190px);
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
